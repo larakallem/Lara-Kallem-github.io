@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lara Kallem | Master's Student</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         :root {
             --bg: #1a0b2e;
@@ -10,54 +14,152 @@
             --text: #f8f0ff;
             --pink: #ff79c6;
             --purple: #bd93f9;
+            --card-bg: #24143d;
+            --card-border: #3d2563;
         }
+
         body {
-            background-color: var(--bg); color: var(--text);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; display: flex; overflow-x: hidden;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
         }
-       
+
         /* SIDEBAR */
         .sidebar {
-            background-color: var(--sidebar); width: 320px; min-height: 100vh;
-            padding: 40px 20px; text-align: center; border-right: 2px solid var(--pink);
-            position: fixed; z-index: 100;
+            background-color: var(--sidebar);
+            width: 320px;
+            height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+            border-right: 2px solid var(--pink);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
+
         .profile-img {
-            width: 170px; height: 170px; border-radius: 50%;
-            border: 4px solid var(--pink); object-fit: cover;
-            margin-top: 20px; object-position: center -1px;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid var(--pink);
+            object-fit: cover;
+            margin-top: 20px;
+            object-position: center top;
             box-shadow: 0 0 20px rgba(255, 121, 198, 0.4);
         }
-        .nav-menu { margin-top: 30px; text-align: left; padding: 0 20px; }
-        .nav-btn {
-            display: block; width: 100%; padding: 12px; margin-bottom: 12px;
-            background: transparent; border: 1.5px solid var(--purple);
-            color: var(--text); text-align: center; text-decoration: none;
-            border-radius: 30px; font-weight: bold; transition: 0.3s;
-            cursor: pointer; outline: none;
+
+        .nav-menu {
+            margin-top: 30px;
+            text-align: left;
+            padding: 0 10px;
         }
-        .nav-btn:hover { background: var(--pink); border-color: var(--pink); color: var(--bg); }
+
+        .nav-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            background: transparent;
+            border: 1.5px solid var(--purple);
+            color: var(--text);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .nav-btn:hover {
+            background: var(--pink);
+            border-color: var(--pink);
+            color: var(--bg);
+        }
 
         /* MAIN CONTENT */
-        .main { flex: 1; padding: 40px; margin-left: 360px; max-width: 800px; }
-       
-        /* POP-UP EFFECT: HIDE SECTIONS BY DEFAULT */
-        section { display: none; animation: fadeIn 0.5s; }
-        #home { display: block; } /* Show home by default */
+        .main {
+            flex: 1;
+            padding: 40px;
+            margin-left: 320px; /* Match sidebar width */
+            max-width: 900px;
+            box-sizing: border-box;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        #home { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h2 { color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 10px; margin-top: 20px; }
-        .card { background: #24143d; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #3d2563; }
-        .interest-tag {
-            display: inline-block; background: var(--sidebar); border: 1px solid var(--pink);
-            color: var(--pink); padding: 5px 15px; border-radius: 20px; margin: 5px; font-weight: bold;
+        h1 { font-size: 1.8em; margin: 15px 0 5px; }
+        h2 { color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 10px; margin-top: 30px; }
+        h3 { color: var(--pink); margin-top: 25px; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--card-border);
+            line-height: 1.6;
         }
-        .date { color: var(--pink); font-weight: bold; float: right; font-size: 0.9em; }
+
+        .interest-tag {
+            display: inline-block;
+            background: var(--sidebar);
+            border: 1px solid var(--pink);
+            color: var(--pink);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .date {
+            color: var(--pink);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+
+        /* Contact Styling */
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .contact-icon { color: var(--pink); width: 20px; text-align: center; font-size: 1.2em; }
+        .contact-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+        .contact-text a:hover { border-bottom: 1px solid var(--pink); }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            body { flex-direction: column; }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--pink);
+            }
+            .main { margin-left: 0; padding: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -66,132 +168,130 @@
     <img src="Lara 2.jpeg" alt="Lara Kallem" class="profile-img">
     <h1>Lara Kallem</h1>
     <p>Master's Student | University of Iowa</p>
-   
-    <div class="nav-menu">
+    
+    <nav class="nav-menu">
         <button onclick="showSection('home')" class="nav-btn">Home</button>
         <button onclick="showSection('research')" class="nav-btn">Research</button>
         <button onclick="showSection('teaching')" class="nav-btn">Teaching</button>
         <button onclick="showSection('contact')" class="nav-btn">Contact</button>
-    </div>
+    </nav>
 
     <hr style="border: 0; border-top: 1px solid var(--purple); margin: 25px 0;">
     <p style="font-size: 0.85em;">Mathematics Department</p>
 </div>
 
 <div class="main">
-   <section id="home">
-    <h2>About Me</h2>
-    <p>I am a Master's student in Mathematics at the University of Iowa.</p>
-   
-    <p>I work as a teaching assistant for Mathematics for the Biological Sciences and College Algebra.</p>
-   
-    <h3>My Research Interests</h3>
-    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
-        <span class="interest-tag">Optimization</span>
-    </div>
-</section>
+    <section id="home">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I am a Master's student in Mathematics at the University of Iowa.</p>
+            <p>I work as a teaching assistant for Mathematics for the Biological Sciences and College Algebra.</p>
+        </div>
+        
+        <h3>My Research Interests</h3>
+        <div style="display: flex; flex-wrap: wrap;">
+            <span class="interest-tag">Optimization</span>
+            <span class="interest-tag">Applied Mathematics</span>
+            <span class="interest-tag">Data Analysis</span>
+        </div>
+    </section>
 
     <section id="research">
-    <h2>Research & Experience</h2>
-   
-    <div class="card">
-        <span class="date">Jun 2021 - Jul 2021</span>
-        <strong>Math Researcher (Internship)</strong><br>
-        Simpson College | Indianola, IA
-        <p>Developed a speech-therapy support application and visualized patient progress data using R.</p>
-    </div>
+        <h2>Research & Experience</h2>
+        
+        <div class="card">
+            <span class="date">Jun 2021 - Jul 2021</span>
+            <strong>Math Researcher (Internship)</strong><br>
+            Simpson College | Indianola, IA
+            <p>Developed a speech-therapy support application and visualized patient progress data using R.</p>
+        </div>
 
-    <div class="card">
-        <span class="date">Aug 2023 - Dec 2023</span>
-        <strong>Independent Capstone Research</strong><br>
-        Simpson College | Indianola, IA
-        <p>Conducted a literature review on EMS location-optimization methods and applied epsilon-constraint optimization using real data from the Clive Fire Department.</p>
-    </div>
+        <div class="card">
+            <span class="date">Aug 2023 - Dec 2023</span>
+            <strong>Independent Capstone Research</strong><br>
+            Simpson College | Indianola, IA
+            <p>Conducted a literature review on EMS location-optimization methods and applied epsilon-constraint optimization using real data from the Clive Fire Department.</p>
+        </div>
 
-    <div class="card">
-        <strong>Personal Lines Field Product Intern | Nationwide Insurance</strong><br>
-        Des Moines, IA (remote)
-        <p>Analyzed large datasets across personal lines insurance products, supported profitability analysis for a $500M portfolio at a Fortune 100 insurer, and delivered data-driven recommendations to leadership addressing loss pressure and product performance.</p>
-    </div>
-</section>
+        <div class="card">
+            <strong>Personal Lines Field Product Intern | Nationwide Insurance</strong><br>
+            Des Moines, IA (remote)
+            <p>Analyzed large datasets across personal lines insurance products, supported profitability analysis for a $500M portfolio, and delivered data-driven recommendations addressing loss pressure.</p>
+        </div>
+    </section>
 
- <section id="teaching">
-    <h2>Teaching at the University of Iowa</h2>
+    <section id="teaching">
+        <h2>Teaching at the University of Iowa</h2>
 
-    <div class="card">
-        <span class="date">Spring 2026</span>
-        <strong>Lead Teaching Assistant</strong><br>
-        Mathematics for the Biological Sciences
-    </div>
+        <div class="card">
+            <span class="date">Spring 2026</span>
+            <strong>Lead Teaching Assistant</strong><br>
+            Mathematics for the Biological Sciences
+        </div>
 
-    <div class="card">
-        <span class="date">Fall 2025</span>
-        <strong>Primary Instructor</strong><br>
-        College Algebra
-    </div>
+        <div class="card">
+            <span class="date">Fall 2025</span>
+            <strong>Primary Instructor</strong><br>
+            College Algebra
+        </div>
 
-    <div class="card">
-        <span class="date">Fall 2024 - Spring 2025</span>
-        <strong>Teaching Assistant</strong><br>
-        Mathematics for the Biological Sciences
-    </div>
+        <div class="card">
+            <span class="date">Fall 2024 - Spring 2025</span>
+            <strong>Teaching Assistant</strong><br>
+            Mathematics for the Biological Sciences
+        </div>
+    </section>
 
-</section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="card">
+            <div class="contact-row">
+                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="contact-text">
+                    <a href="mailto:lara-kallem@uiowa.edu">lara-kallem@uiowa.edu</a>
+                </div>
+            </div>
 
-   <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <div class="contact-row">
-            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div class="contact-text">
-                <a href="mailto:lara-kallem@uiowa.edu">lara-kallem@uiowa.edu</a>
+            <div class="contact-row">
+                <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="contact-text">
+                    <a href="https://github.com/larakallem" target="_blank">github.com/larakallem</a>
+                </div>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-text">
+                    <strong>University of Iowa</strong><br>
+                    1F MacLean Hall (MLH)<br>
+                    2 W. Washington Street, Iowa City, IA 52240
+                </div>
             </div>
         </div>
-
-        <div class="contact-row">
-            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-           
-        </div>
-
-        <div class="contact-row">
-            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
-            <div class="contact-text">
-                <a href="https://github.com/larakallem" target="_blank">github.com/larakallem</a>
-            </div>
-        </div>
-
-        <div class="contact-row">
-            <div class="contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-       
-        </div>
-
-        <div class="contact-row">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div class="contact-text">
-                <strong>University of Iowa</strong><br>
-                1F MacLean Hall (MLH)<br>
-                2 W. Washington Street<br>
-                Iowa City, IA 52240<br>
-                United States
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 </div>
 
 <script>
     function showSection(sectionId) {
-        // Hide all sections
+        // Hide all sections with a clean reset
         const sections = document.querySelectorAll('section');
         sections.forEach(section => {
             section.style.display = 'none';
         });
-       
-        // Show the selected section
-        document.getElementById(sectionId).style.display = 'block';
-       
-        // Scroll to top of main content
-        window.scrollTo(0, 0);
+        
+        // Show the target section
+        const activeSection = document.getElementById(sectionId);
+        if (activeSection) {
+            activeSection.style.display = 'block';
+            
+            // Re-trigger the animation manually by resetting it
+            activeSection.style.animation = 'none';
+            activeSection.offsetHeight; // trigger reflow
+            activeSection.style.animation = 'fadeIn 0.6s ease-out forwards';
+        }
+        
+        // Scroll back to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
