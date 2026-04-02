@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lara Kallem | Master's Student</title>
+    <style>
+        :root {
+            --bg: #1a0b2e;
+            --sidebar: #2d1b4d;
+            --text: #f8f0ff;
+            --pink: #ff79c6;
+            --purple: #bd93f9;
+        }
+        body {
+            background-color: var(--bg); color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; display: flex; overflow-x: hidden;
+        }
+       
+        /* SIDEBAR */
+        .sidebar {
+            background-color: var(--sidebar); width: 320px; min-height: 100vh;
+            padding: 40px 20px; text-align: center; border-right: 2px solid var(--pink);
+            position: fixed; z-index: 100;
+        }
+        .profile-img {
+            width: 170px; height: 170px; border-radius: 50%;
+            border: 4px solid var(--pink); object-fit: cover;
+            margin-top: 20px; object-position: center -1px;
+            box-shadow: 0 0 20px rgba(255, 121, 198, 0.4);
+        }
+        .nav-menu { margin-top: 30px; text-align: left; padding: 0 20px; }
+        .nav-btn {
+            display: block; width: 100%; padding: 12px; margin-bottom: 12px;
+            background: transparent; border: 1.5px solid var(--purple);
+            color: var(--text); text-align: center; text-decoration: none;
+            border-radius: 30px; font-weight: bold; transition: 0.3s;
+            cursor: pointer; outline: none;
+        }
+        .nav-btn:hover { background: var(--pink); border-color: var(--pink); color: var(--bg); }
+
+        /* MAIN CONTENT */
+        .main { flex: 1; padding: 40px; margin-left: 360px; max-width: 800px; }
+       
+        /* POP-UP EFFECT: HIDE SECTIONS BY DEFAULT */
+        section { display: none; animation: fadeIn 0.5s; }
+        #home { display: block; } /* Show home by default */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 10px; margin-top: 20px; }
+        .card { background: #24143d; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #3d2563; }
+        .interest-tag {
+            display: inline-block; background: var(--sidebar); border: 1px solid var(--pink);
+            color: var(--pink); padding: 5px 15px; border-radius: 20px; margin: 5px; font-weight: bold;
+        }
+        .date { color: var(--pink); font-weight: bold; float: right; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <img src="fatemeh.jpeg" alt="Fatemeh Shanehsazan" class="profile-img">
+    <h1>Fatemeh Shanehsazan</h1>
+    <p>PhD Candidate | University of Iowa</p>
+   
+    <div class="nav-menu">
+        <button onclick="showSection('home')" class="nav-btn">Home</button>
+        <button onclick="showSection('research')" class="nav-btn">Research</button>
+        <button onclick="showSection('teaching')" class="nav-btn">Teaching</button>
+        <button onclick="showSection('contact')" class="nav-btn">Contact</button>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid var(--purple); margin: 25px 0;">
+    <p style="font-size: 0.85em;">Mathematics Department</p>
+</div>
+
+<div class="main">
+   <section id="home">
+    <h2>About Me</h2>
+    <p>I am a PhD Candidate in Mathematics at the University of Iowa, where I work on topological data analysis under the supervision of <strong>Dr. Isabel Darcy</strong>.</p>
+   
+    <p>Beyond research, I serve as the Social Media Manager for the <strong>Association for Women in Mathematics (AWM)</strong> and as an International Liaison Officer for the <strong>Math Graduate Board (MGB)</strong>.</p>
+   
+    <h3>My Research Interests</h3>
+    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
+        <span class="interest-tag">Topological Data Analysis (TDA)</span>
+        <span class="interest-tag">Visualization Methods</span>
+        <span class="interest-tag">Persistent Homology</span>
+    </div>
+</section>
+
+    <section id="research">
+    <h2>Research & Experience</h2>
+   
+    <div class="card">
+        <span class="date">Jun 2025 - Aug 2025</span>
+        <strong>Math Researcher (Internship)</strong><br>
+        Smart Heat Corporation | Illinois (Remote)
+        <p>Applied advanced mathematical modeling and data analysis techniques to solve industry-specific challenges in a corporate environment.</p>
+    </div>
+
+    <div class="card">
+        <span class="date">Oct 2024 - Feb 2025</span>
+        <strong>Data Analysis & Machine Learning Intern</strong><br>
+        INMAS (Internship Network in Mathematics Science) | Urbana-Champaign Area
+        <p>Participated in a specialized training program focusing on statistical modeling, machine learning, and deep learning. Gained hands-on experience in Python through various practical projects.</p>
+    </div>
+
+    <div class="card">
+        <strong>PhD Research | Topological Data Analysis (TDA)</strong><br>
+        University of Iowa
+        <ul>
+            <li><strong>Mapper Graphs:</strong> Developing multi-scale visualization and filtration techniques for complex systems.</li>
+            <li><strong>Computational Tools:</strong> Investigating persistent homology using Python and specialized TDA libraries.</li>
+            <li><strong>Applied Topology:</strong> Deriving meaningful insights from high-dimensional datasets through topological approaches.</li>
+        </ul>
+    </div>
+</section>
+
+ <section id="teaching">
+    <h2>Teaching at the University of Iowa</h2>
+   
+    <div class="card">
+        <span class="date">Spring 2026</span>
+        <strong>Teaching Assistant Mentor</strong><br>
+        Mentoring first-year teaching assistants in the Department of Mathematics.
+    </div>
+
+    <div class="card">
+        <span class="date">Spring 2026</span>
+        <strong>Primary Instructor</strong><br>
+        Engineering Matrix Algebra
+    </div>
+
+    <div class="card">
+        <span class="date">Fall 2025</span>
+        <strong>Primary Instructor</strong><br>
+        College Algebra
+    </div>
+
+    <div class="card">
+        <span class="date">Spring 2025</span>
+        <strong>Primary Instructor</strong><br>
+        Elementary Functions
+    </div>
+
+    <div class="card">
+        <span class="date">Fall 2024</span>
+        <strong>Teaching Assistant</strong><br>
+        Mathematics for the Biological Sciences
+    </div>
+
+    <div class="card">
+        <span class="date">Spring 2024</span>
+        <strong>Teaching Assistant</strong><br>
+        Engineer Math IV: Differential Equations
+    </div>
+
+    <div class="card">
+        <span class="date">Spring 2024</span>
+        <strong>Helper</strong><br>
+        Mathematical Biology II (Graduate 5000 level)
+    </div>
+
+    <div class="card">
+        <span class="date">Fall 2023</span>
+        <strong>Teaching Assistant</strong><br>
+        Engineer Math IV: Differential Equations
+    </div>
+
+    <div class="card">
+        <span class="date">Fall 2023</span>
+        <strong>Teaching Assistant</strong><br>
+        Calculus III
+    </div>
+
+    <div class="card">
+        <span class="date">Spring 2023</span>
+        <strong>Recognition</strong><br>
+        Recognized as one of the 10 most outstanding Math Lab tutors by students.
+    </div>
+
+    <h2>Teaching Certifications</h2>
+    <div class="card">
+        <ul>
+            <li><strong>CIRTL Associate Level Certificate</strong> (Issued Mar 2026)</li>
+            <li><strong>CIRTL Practitioner Program</strong> (Participant)</li>
+            <li><strong>Certificate in College Teaching</strong> (In Progress)</li>
+        </ul>
+    </div>
+</section>
+
+   <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-text">
+                <a href="mailto:fatemeh-shanehsazan@uiowa.edu">fatemeh-shanehsazan@uiowa.edu</a>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+           
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-text">
+                <a href="https://github.com/FatemeH0711" target="_blank">github.com/FatemeH0711</a>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+       
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-text">
+                <strong>University of Iowa</strong><br>
+                25E MacLean Hall (MLH)<br>
+                2 W. Washington Street<br>
+                Iowa City, IA 52240<br>
+                United States
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+       
+        // Show the selected section
+        document.getElementById(sectionId).style.display = 'block';
+       
+        // Scroll to top of main content
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
